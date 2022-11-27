@@ -46,6 +46,10 @@ camera_zoom = MIN_ZOOM
 
 camera_zoom_step = 0
 
+# SELECTION CONSTANTS
+
+SELECTION_WIDTH = 5
+
 # SELECTION GLOBALS
 selected_waypoint = None
 
@@ -428,6 +432,12 @@ while running:
             or line_rect_collision(*first_waypoint_camera_pos, *second_waypoint_camera_pos, 0, 0, WIDTH, HEIGHT):
             pygame.draw.line(screen, (255, 255, 255) if l["type"] == 0 else (128, 128, 128), first_waypoint_camera_pos, second_waypoint_camera_pos, width=int(clamp(apply_camera_zoom(5), 2, float("inf"))))
 
+    # RENDER PATH
+    path_positions = [apply_camera(*find_waypoint_by_id(i)["pos"]) for i in last_path]
+
+    if len(path_positions) >= 2:
+        pygame.draw.lines(screen, (0, 255, 0), False, path_positions, width=int(clamp(apply_camera_zoom(3), 3, float("inf"))))
+
     # RENDER WAYPOINTS
 
     for w in data["waypoints"]:
@@ -440,6 +450,16 @@ while running:
             #        (73, 216, 235) if w["type"] == "SkyRail" else (
             #        (237, 227, 26) if w["type"] == "ClyRail" else (255, 255, 255))))
             
+            if selected_waypoint == w["id"]:
+                pygame.draw.rect(
+                    screen,
+                    (255, 255, 255),
+                    (waypoint_camera_pos[0] - waypoint_camera_scale_pixels / 2 - SELECTION_WIDTH,
+                     waypoint_camera_pos[1] - waypoint_camera_scale_pixels / 2 - SELECTION_WIDTH,
+                     waypoint_camera_scale_pixels + SELECTION_WIDTH * 2,
+                     waypoint_camera_scale_pixels + SELECTION_WIDTH * 2),
+                )
+            
             logo_to_use = logo_aircs   if w["type"] == "AirCS"   else (
                           logo_sqtr    if w["type"] == "SQTR"    else (
                           logo_clyrail if w["type"] == "ClyRail" else None))
@@ -448,8 +468,8 @@ while running:
                 screen.blit(
                     pygame.transform.scale(logo_to_use, (waypoint_camera_scale_pixels,) * 2),
                     (
-                        waypoint_camera_pos[0] - waypoint_camera_scale_pixels // 2,
-                        waypoint_camera_pos[1] - waypoint_camera_scale_pixels // 2
+                        waypoint_camera_pos[0] - waypoint_camera_scale_pixels / 2,
+                        waypoint_camera_pos[1] - waypoint_camera_scale_pixels / 2
                     )
                 )
             else:
@@ -459,14 +479,6 @@ while running:
                     waypoint_camera_pos,
                     waypoint_camera_scale_pixels // 2,
                     int(clamp(apply_camera_zoom(5), 2, float("inf")))
-                )
-
-            if selected_waypoint == w["id"]:
-                pygame.draw.circle(
-                    screen,
-                    (255, 255, 255),
-                    waypoint_camera_pos,
-                    clamp(apply_camera_zoom(5.1), 5, float("inf"))
                 )
 
             if show_labels:
@@ -515,12 +527,6 @@ while running:
         screen.blit(text_surface, (0, 0))
     except IndexError:
         pass
-
-    # RENDER PATH
-    path_positions = [apply_camera(*find_waypoint_by_id(i)["pos"]) for i in last_path]
-
-    if len(path_positions) >= 2:
-        pygame.draw.lines(screen, (0, 255, 0), False, path_positions, width=int(clamp(apply_camera_zoom(3), 3, float("inf"))))
 
     pygame.display.flip()
 
