@@ -1,0 +1,308 @@
+[
+    {
+        "type": "walkable_quadruplet",
+        "p1": "AirCS - Westover",
+        "p2": "SQTR - Westover",
+        "p3": "ClyRail - Westover",
+        "p4": "SkyRail - Westover Island"
+    },
+
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Inkytown",
+        "p2": "SQTR - Inkytown",
+        "p3": "ClyRail - Inkytown"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Whale City Residential",
+        "p2": "SQTR - Whale City",
+        "p3": "ClyRail - Whale City"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Quartercity",
+        "p2": "SQTR - Quartercity",
+        "p3": "ClyRail - Quartercity"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Midcity",
+        "p2": "SQTR - Midcity",
+        "p3": "ClyRail - Midcity"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Palinode",
+        "p2": "SQTR - Palinode Plaza",
+        "p3": "ClyRail - Palinode"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Victor's Interesting City",
+        "p2": "SQTR - Victor's Interesting City",
+        "p3": "ClyRail - VIC"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Auckland",
+        "p2": "SQTR - Auckland",
+        "p3": "SkyRail - Auckland City"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - ShiftCity",
+        "p2": "SQTR - Shiftcity",
+        "p3": "SkyRail - Shiftcity"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Long Island",
+        "p2": "SQTR - Capitola",
+        "p3": "SkyRail - Long Island"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - BingoCity",
+        "p2": "SQTR - Bingo City",
+        "p3": "ClyRail - Bingocity"
+    },
+    {
+        "type": "walkable_triplet",
+        "p1": "AirCS - Energy Cove",
+        "p2": "SQTR - Energy Cove",
+        "p3": "ClyRail - Energy Cove"
+    },
+
+
+    {
+        "type": "walkable",
+        "p1": "AirCS - RMUFO",
+        "p2": "SQTR - RMUFO"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Birch Boat Town",
+        "p2": "SQTR - Birch Boat Town"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Birch Lodges",
+        "p2": "SQTR - Birch Lodges"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Anatoli Park & Ride",
+        "p2": "SQTR - Anatoli"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - University of Anatoli",
+        "p2": "SQTR - University of Anatoli"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - PLC Central",
+        "p2": "SQTR - PLC"
+    },
+    {
+        "type": "walkable",
+        "p1": "SQTR - New Clygro Town",
+        "p2": "ClyRail - NCT Hub"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Whale City Commercial",
+        "p2": "SkyRail - Whale City"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Alee Isle",
+        "p2": "SQTR - Alee Isle"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Breadcroust",
+        "p2": "SQTR - Breadcroust"
+    },
+    {
+        "type": "walkable",
+        "p1": "AirCS - Silicon Valley",
+        "p2": "SQTR - Silicon Valley"
+    },
+    {
+        "type": "walkable",
+        "p1": "SQTR - Mojave Dessert",
+        "p2": "ClyRail - Mojave Dessert"
+    },
+
+
+
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Yavno City",
+            "ClyRail - Dlphecity",
+            "ClyRail - Red Island City",
+            "ClyRail - Red Island"
+        ]
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Purple Island",
+            "ClyRail - Pink Island",
+            "ClyRail - Blue Island",
+            "ClyRail - Red Island",
+            "ClyRail - Old Village",
+            "ClyRail - NCOAT"
+        ]
+    },
+    {
+        "type": "normal",
+        "p1": "ClyRail - NCOAT",
+        "p2": "ClyRail - NCOAT Pier"
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Westvalley",
+            "ClyRail - NCT South",
+            "ClyRail - NCT Hub",
+            "ClyRail - NCOAT",
+            "ClyRail - Bingocity",
+            "ClyRail - Westover",
+            "ClyRail - Energy Cove",
+            "ClyRail - Mojave Dessert",
+            "ClyRail - SEI Central"
+        ]
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Midcity",
+            "ClyRail - New City",
+            "ClyRail - Quartercity",
+            "ClyRail - Westover",
+            "ClyRail - Whale City",
+            "ClyRail - Inkytown",
+            "ClyRail - NCITE",
+            "ClyRail - NCT Hub",
+            "ClyRail - NCC",
+            "ClyRail - Bordertown",
+            "ClyRail - Snowy Port Town"
+        ]
+    },
+    {
+        "type": "normal",
+        "p1": "ClyRail - Snowy Port Town",
+        "p2": "ClyRail - Small Village"
+    },
+    {
+        "type": "normal",
+        "p1": "ClyRail - NCT Hub",
+        "p2": "ClyRail - NCT Airport"
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Bordertown",
+            "ClyRail - NCOAT",
+            "ClyRail - Westvalley"
+        ]
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Whale City",
+            "ClyRail - Whale City Heights",
+            "ClyRail - Whale City Hills"
+        ]
+    },
+    {
+        "type": "normal",
+        "p1": "ClyRail - Athena",
+        "p2": "ClyRail - Midcity"
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "ClyRail - Palinode",
+            "ClyRail - VIC",
+            "ClyRail - Midcity"
+        ]
+    },
+
+
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "SQTR - Birch Lodges",
+            "SQTR - Anatoli",
+            "SQTR - New Clygro Town",
+            "SQTR - Inkytown",
+            "SQTR - Auckland",
+            "SQTR - Bingo City",
+            "SQTR - Koinu",
+            "SQTR - Bridgett's Port"
+        ]
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "SQTR - Palinode Plaza",
+            "SQTR - Palinode Mall",
+            "SQTR - Victor's Interesting City",
+            "SQTR - Midcity",
+            "SQTR - Quartercity",
+            "SQTR - Calliope",
+            "SQTR - Annaki Island",
+            "SQTR - Bridgett's Port",
+            "SQTR - Westover",
+            "SQTR - Downtown",
+            "SQTR - Capitola",
+            "SQTR - Spawn Memorial",
+            "SQTR - Whale City",
+            "SQTR - Inkytown"
+        ]
+    },
+    {
+        "type": "normal",
+        "p1": "SQTR - Quartercity",
+        "p2": "SQTR - Whale City"
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "SQTR - Doodly Island",
+            "SQTR - Energy Cove",
+            "SQTR - Breadcroust",
+            "SQTR - Silicon Valley",
+            "SQTR - Alee Isle",
+            "SQTR - Birch Boat Town",
+            "SQTR - Shiftcity",
+            "SQTR - Birch Lodges"
+        ]
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "SQTR - Victor's Interesting City",
+            "SQTR - Birch Boat Town",
+            "SQTR - Whale City"
+        ]
+    },
+    {
+        "type": "polygonal",
+        "waypoints": [
+            "SQTR - PLC",
+            "SQTR - Mojave Dessert",
+            "SQTR - Silicon Valley",
+            "SQTR - Alee Isle",
+            "SQTR - Capitola",
+            "SQTR - Spawn Memorial",
+            "SQTR - RMUFO",
+            "SQTR - Auckland"
+        ]
+    }
+]
