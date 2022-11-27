@@ -21,8 +21,8 @@ WS_URL = "ws://bnbnav.aircs.racing/ws"
 PATH = "waypoints.json"
 FONT = pygame.font.SysFont("Noto Sans", 12)
 
-WAYPOINT_RADIUS = 10
-WAYPOINT_RADIUS_MIN = 7
+WAYPOINT_SIZE = 10
+WAYPOINT_SIZE_MIN = 12
 
 # GLOBALS
 
@@ -149,8 +149,8 @@ def line_rect_collision(line_x1, line_y1, line_x2, line_y2, rect_x, rect_y, rect
 def get_waypoint_under_point(point_x, point_y):
     for w in data["waypoints"]:
         waypoint_camera_pos = apply_camera(w["pos"][0], w["pos"][1])
-        waypoint_camera_radius = clamp(apply_camera_zoom(WAYPOINT_RADIUS), WAYPOINT_RADIUS_MIN, float("inf"))
-        if point_circle_collision(point_x, point_y, *waypoint_camera_pos, waypoint_camera_radius):
+        waypoint_camera_scale_pixels = clamp(apply_camera_zoom(WAYPOINT_SIZE), WAYPOINT_SIZE_MIN, float("inf"))
+        if point_rect_collision(point_x, point_y, waypoint_camera_pos[0] - waypoint_camera_scale_pixels / 2, waypoint_camera_pos[1] - waypoint_camera_scale_pixels / 2, waypoint_camera_scale_pixels, waypoint_camera_scale_pixels):
             return w
 
 def find_path_a_star(start_waypoint_id, end_waypoint_id):
@@ -340,26 +340,23 @@ while running:
 
             if event.button == 7 or event.button == 6: # Side/front button or Side/back button
                 if selected_waypoint is not None:
-                    for w in data["waypoints"]:
-                        waypoint_camera_pos = apply_camera(w["pos"][0], w["pos"][1])
-                        waypoint_camera_radius = clamp(apply_camera_zoom(WAYPOINT_RADIUS), WAYPOINT_RADIUS_MIN, float("inf"))
-                        if point_circle_collision(*event.pos, *waypoint_camera_pos, waypoint_camera_radius):
-                            if w["id"] != selected_waypoint:
-                                # Verify that the line we're about to create is new
-                                valid = True
+                    w = get_waypoint_under_point(*event.pos)
 
-                                for l in data["lines"]:
-                                    # These are not dictionaries, these are sets.
-                                    if {l["p1"], l["p2"]} == {w["id"], selected_waypoint}:
-                                        valid = False
+                    if w is not None:
+                        if w["id"] != selected_waypoint:
+                            # Verify that the line we're about to create is new
+                            valid = True
 
-                                if valid:
-                                    data["lines"].append({"p1": selected_waypoint, "p2": w["id"], "type": 0 if event.button == 7 else 1})
-                                    selected_waypoint = None
-                            
-                            break
+                            for l in data["lines"]:
+                                # These are not dictionaries, these are sets.
+                                if {l["p1"], l["p2"]} == {w["id"], selected_waypoint}:
+                                    valid = False
 
+                            if valid:
+                                data["lines"].append({"p1": selected_waypoint, "p2": w["id"], "type": 0 if event.button == 7 else 1})
+                                selected_waypoint = None
         
+
         elif event.type == pygame.MOUSEBUTTONUP:
             if event.button == 2: # Middle button
                 moving_camera = False
@@ -435,7 +432,7 @@ while running:
 
     for w in data["waypoints"]:
         waypoint_camera_pos = apply_camera(w["pos"][0], w["pos"][1])
-        waypoint_camera_scale_pixels = clamp(apply_camera_zoom(25), 12, float("inf"))
+        waypoint_camera_scale_pixels = clamp(apply_camera_zoom(WAYPOINT_SIZE), WAYPOINT_SIZE_MIN, float("inf"))
 
         if point_rect_collision(*waypoint_camera_pos, -waypoint_camera_scale_pixels, -waypoint_camera_scale_pixels, WIDTH + waypoint_camera_scale_pixels * 2, HEIGHT + waypoint_camera_scale_pixels * 2):
             #color = (212, 64, 44)  if w["type"] == "AirCS"   else (
